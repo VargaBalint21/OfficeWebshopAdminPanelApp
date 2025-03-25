@@ -14,6 +14,7 @@ namespace OfficeWebshopAdminPanelApp
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// //dkwodkwk
     public partial class MainWindow : Window
     {
         public MainWindow()

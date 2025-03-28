@@ -1,27 +1,22 @@
 ﻿using OfficeWebshopAdminPanelApp.ViewModels;
-using System.Text;
+using System.Diagnostics;
+using System.Net.Http;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace OfficeWebshopAdminPanelApp
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    /// //dkwodkwk
     public partial class MainWindow : Window
     {
-        public MainWindow(/*LoginViewModel loginViewModel*/)
+        public MainWindow()
         {
             InitializeComponent();
-            //DataContext = loginViewModel;
+
+            var productViewModel = new ProductViewModel();
+            this.DataContext = productViewModel;
+
+            // Load products asynchronously
+            productViewModel.LoadProductsAsync();
         }
+
     }
 }

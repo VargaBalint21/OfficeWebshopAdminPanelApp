@@ -30,7 +30,7 @@ namespace OfficeWebshopAdminPanelApp.ViewModels
             // Implement the logic to save the product and post the changes to the database
             using (var httpClient = new HttpClient())
             {
-                var response = await httpClient.PutAsJsonAsync($"https://api.example.com/products/{SelectedProduct.Id}", SelectedProduct);
+                var response = await httpClient.PutAsJsonAsync($"http://localhost:8000/api/products/{SelectedProduct.Id}", SelectedProduct);
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Product updated successfully!");

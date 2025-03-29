@@ -10,7 +10,6 @@ using System.Windows.Input;
 using System.Windows;
 using System.Net.Http.Json;
 using CommunityToolkit.Mvvm.Input;
-using Newtonsoft.Json;
 
 namespace OfficeWebshopAdminPanelApp.ViewModels
 {
@@ -28,34 +27,20 @@ namespace OfficeWebshopAdminPanelApp.ViewModels
 
         private async void SaveProduct()
         {
-            try
+            // Implement the logic to save the product and post the changes to the database
+            using (var httpClient = new HttpClient())
             {
-                using (var httpClient = new HttpClient())
+                var response = await httpClient.PutAsJsonAsync($"http://localhost:8000/api/products/{SelectedProduct.Id}", SelectedProduct);
+                if (response.IsSuccessStatusCode)
                 {
-                    var requestContent = JsonConvert.SerializeObject(SelectedProduct);
-                    Console.WriteLine("Request Content: " + requestContent); // Log request content
-
-                    var response = await httpClient.PutAsJsonAsync($"http://localhost:8000/api/products/{SelectedProduct.Id}", SelectedProduct);
-
-                    var responseContent = await response.Content.ReadAsStringAsync(); // Log response content
-                    Console.WriteLine("Response: " + responseContent);
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        MessageBox.Show("Product updated successfully!");
-                    }
-                    else
-                    {
-                        MessageBox.Show($"Failed to update the product. Error: {response.StatusCode}\nDetails: {responseContent}");
-                    }
+                    MessageBox.Show("Product updated successfully!");
+                }
+                else
+                {
+                    MessageBox.Show("Failed to update the product.");
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}");
-            }
         }
-
 
         // Implement INotifyPropertyChanged interface
         public event PropertyChangedEventHandler PropertyChanged;

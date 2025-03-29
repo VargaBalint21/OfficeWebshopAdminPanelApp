@@ -3,8 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Button Content="Add New Product" HorizontalAlignment="Left" VerticalAlignment="Center" Width="107" Height="434" Click="OnAddNewProductClick"/>
         <ListView x:Name="ProductsListView" ItemsSource="{Binding Products}" 
-          SelectedItem="{Binding SelectedProduct, Mode=TwoWay}">
+          SelectedItem="{Binding SelectedProduct, Mode=TwoWay}" Margin="107,0,5,0">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <EventSetter Event="MouseDoubleClick" Handler="OnProductDoubleClick"/>

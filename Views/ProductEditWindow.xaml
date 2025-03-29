@@ -9,11 +9,11 @@
     <Grid>
         <StackPanel>
             <TextBlock Text="Name"/>
-            <TextBox Text="{Binding SelectedProduct.Name, Mode=TwoWay}"/>
+            <TextBox Text="{Binding SelectedProduct.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="Price"/>
-            <TextBox Text="{Binding SelectedProduct.Price, Mode=TwoWay}"/>
+            <TextBox Text="{Binding SelectedProduct.Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="Description"/>
-            <TextBox Text="{Binding SelectedProduct.Description, Mode=TwoWay}"/>
+            <TextBox Text="{Binding SelectedProduct.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <Button Content="Save" Command="{Binding SaveProductCommand}"/>
             <Button Content="Delete" Command="{Binding DeleteProductCommand}" />
         </StackPanel>

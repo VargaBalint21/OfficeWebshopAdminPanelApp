@@ -1,5 +1,6 @@
 ﻿using OfficeWebshopAdminPanelApp.Models;
 using OfficeWebshopAdminPanelApp.ViewModels;
+using OfficeWebshopAdminPanelApp.Views;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -17,6 +18,16 @@ namespace OfficeWebshopAdminPanelApp
             // Load products asynchronously
             productViewModel.LoadProductsAsync();
         }
+
+        private void OnAddNewProductClick(object sender, RoutedEventArgs e)
+        {
+            // Open the ProductAddWindow
+            var productAddWindow = new ProductAddWindow();
+            var productAddViewModel = new ProductAddViewModel();
+            productAddWindow.DataContext = productAddViewModel;
+            productAddWindow.Show();
+        }
+
 
         private void OnProductDoubleClick(object sender, RoutedEventArgs e)
         {

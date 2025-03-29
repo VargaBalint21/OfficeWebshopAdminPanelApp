@@ -3,17 +3,30 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="ProductsListBox" ItemsSource="{Binding Products}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Name}" FontWeight="Bold" />
-                        <TextBlock Text="{Binding Price, StringFormat='Price: {0:C}'}" />
-                        <TextBlock Text="{Binding Description}" TextWrapping="Wrap" />
-                        <!-- <Image Source="{Binding Image}" Width="100" Height="100" /> -->
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <ListView x:Name="ProductsListView" ItemsSource="{Binding Products}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
+                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price, StringFormat='{}{0:C}'}" Width="100"/>
+                    <GridViewColumn Header="Description" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Description}" TextWrapping="Wrap"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <!-- Uncomment if you want to display images -->
+                    <!--
+                <GridViewColumn Header="Image" Width="100">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Image}" Width="100" Height="100"/>
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+                -->
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>

@@ -1,5 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using CommunityToolkit.Mvvm.Input;
+using Newtonsoft.Json;
 using OfficeWebshopAdminPanelApp.Models;
+using OfficeWebshopAdminPanelApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,6 +10,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 
 namespace OfficeWebshopAdminPanelApp.ViewModels
 {
@@ -23,6 +26,7 @@ namespace OfficeWebshopAdminPanelApp.ViewModels
                 OnPropertyChanged();
             }
         }
+        public ICommand SelectProductCommand { get; }
 
         private readonly HttpClient _httpClient;
 
@@ -30,6 +34,14 @@ namespace OfficeWebshopAdminPanelApp.ViewModels
         {
             _httpClient = new HttpClient();
             _products = new ObservableCollection<ProductModel>();
+            SelectProductCommand = new RelayCommand<ProductModel>(SelectProduct);
+        }
+
+        private void SelectProduct(ProductModel product)
+        {
+            // Navigate to the product editing page
+            var productEditWindow = new ProductEditWindow(product);
+            productEditWindow.Show();
         }
 
         public async Task LoadProductsAsync()

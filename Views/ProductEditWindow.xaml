@@ -8,8 +8,12 @@
         Title="Edit Product" Height="300" Width="400">
     <Grid>
         <StackPanel>
+            <TextBlock Text="Name"/>
             <TextBox Text="{Binding SelectedProduct.Name, Mode=TwoWay}"/>
+            <TextBlock Text="Price"/>
             <TextBox Text="{Binding SelectedProduct.Price, Mode=TwoWay}"/>
+            <TextBlock Text="Description"/>
+            <TextBox Text="{Binding SelectedProduct.Description, Mode=TwoWay}"/>
             <Button Content="Save" Command="{Binding SaveProductCommand}"/>
             <Button Content="Delete" Command="{Binding DeleteProductCommand}" />
         </StackPanel>

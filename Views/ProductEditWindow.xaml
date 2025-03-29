@@ -11,6 +11,7 @@
             <TextBox Text="{Binding SelectedProduct.Name, Mode=TwoWay}"/>
             <TextBox Text="{Binding SelectedProduct.Price, Mode=TwoWay}"/>
             <Button Content="Save" Command="{Binding SaveProductCommand}"/>
+            <Button Content="Delete" Command="{Binding DeleteProductCommand}" />
         </StackPanel>
     </Grid>
 </Window>

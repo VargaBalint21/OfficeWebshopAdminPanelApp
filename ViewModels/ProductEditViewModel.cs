@@ -74,7 +74,6 @@ namespace OfficeWebshopAdminPanelApp.ViewModels
         }
 
 
-        // Implement INotifyPropertyChanged interface
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
         {

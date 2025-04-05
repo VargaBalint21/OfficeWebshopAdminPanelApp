@@ -43,7 +43,7 @@ namespace OfficeWebshopAdminPanelApp.ViewModels
         {
             try
             {
-                var response = await _httpClient.GetStringAsync("http://127.0.0.1:8000/api/products"); // Adjust API URL as needed
+                var response = await _httpClient.GetStringAsync("http://127.0.0.1:8000/api/products");
                 var products = JsonConvert.DeserializeObject<List<ProductModel>>(response);
                 Products.Clear();
                 foreach (var product in products)
@@ -53,7 +53,6 @@ namespace OfficeWebshopAdminPanelApp.ViewModels
             }
             catch (Exception ex)
             {
-                // Handle errors
                 MessageBox.Show($"Error fetching products: {ex.Message}");
             }
         }
@@ -62,7 +61,7 @@ namespace OfficeWebshopAdminPanelApp.ViewModels
         {
             try
             {
-                var response = await _httpClient.GetStringAsync("http://127.0.0.1:8000/api/products"); // Adjust API URL as needed
+                var response = await _httpClient.GetStringAsync("http://127.0.0.1:8000/api/products");
                 var products = JsonConvert.DeserializeObject<List<ProductModel>>(response);
                 Products.Clear();
                 foreach (var product in products)
@@ -72,7 +71,6 @@ namespace OfficeWebshopAdminPanelApp.ViewModels
             }
             catch (Exception ex)
             {
-                // Handle errors
                 MessageBox.Show($"Error fetching products: {ex.Message}");
             }
         }

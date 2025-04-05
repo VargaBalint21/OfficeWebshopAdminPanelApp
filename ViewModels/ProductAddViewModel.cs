@@ -21,7 +21,6 @@ namespace OfficeWebshopAdminPanelApp.ViewModels
 
         public ICommand SaveProductCommand { get; }
 
-        // Constructor does not require the 'product' argument anymore
         public ProductAddViewModel()
         {
             SaveProductCommand = new RelayCommand(SaveProduct);
@@ -65,7 +64,6 @@ namespace OfficeWebshopAdminPanelApp.ViewModels
             }
         }
 
-        // Implement INotifyPropertyChanged interface
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(string propertyName)

@@ -1,19 +1,10 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using System.Windows;
-using CommunityToolkit.Mvvm.Input;
-using System.Net.Http.Json;
 using OfficeWebshopAdminPanelApp.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using OfficeWebshopAdminPanelApp.Services;
-using System.Diagnostics;
 
 namespace OfficeWebshopAdminPanelApp.ViewModels
 {
@@ -23,7 +14,6 @@ namespace OfficeWebshopAdminPanelApp.ViewModels
         [ObservableProperty] private string password;
         [ObservableProperty] private string errorMessage;
 
-        [RelayCommand]
         public async Task LoginAsync()
         {
             var client = new HttpClient();
@@ -48,7 +38,7 @@ namespace OfficeWebshopAdminPanelApp.ViewModels
 
                     MessageBox.Show($"Szia {result.User.FirstName}!", "Sikeres bejelentkezés");
 
-                    // Open main window or continue to product management
+                    // Open main window
                     var mainWindow = new MainWindow();
                     mainWindow.Show();
                     Application.Current.Windows.OfType<LoginWindow>().FirstOrDefault()?.Close();

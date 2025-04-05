@@ -17,15 +17,9 @@ namespace OfficeWebshopAdminPanelApp
         protected override void OnStartup(StartupEventArgs e)
         {
             var loginWindow = new LoginWindow();
-            loginWindow.ShowDialog();
-
-            // Only open main window if login succeeded (you can set a flag or check if AuthService.Token is not null)
-            if (!string.IsNullOrEmpty(AuthService.Token))
-            {
-                var mainWindow = new MainWindow();
-                mainWindow.Show();
-            }
+            loginWindow.ShowDialog();  // Show the login window until it's closed
         }
+
     }
 
 

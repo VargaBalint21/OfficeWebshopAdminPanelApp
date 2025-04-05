@@ -6,8 +6,6 @@ using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 using System.Windows;
 using OfficeWebshopAdminPanelApp.Views;
-using System.Linq;
-using System.Configuration;
 
 namespace OfficeWebshopAdminPanelApp.ViewModels
 {

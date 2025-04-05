@@ -1,21 +1,20 @@
 ﻿<Window x:Class="OfficeWebshopAdminPanelApp.Views.ProductEditWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:OfficeWebshopAdminPanelApp.Views"
-        mc:Ignorable="d"
-        Title="Edit Product" Height="300" Width="400">
+        Title="Edit Product" Height="350" Width="400" Background="#f4f4f4">
     <Grid>
-        <StackPanel>
-            <TextBlock Text="Name"/>
-            <TextBox Text="{Binding SelectedProduct.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Price"/>
-            <TextBox Text="{Binding SelectedProduct.Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Description"/>
-            <TextBox Text="{Binding SelectedProduct.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Button Content="Save" Command="{Binding SaveProductCommand}"/>
-            <Button Content="Delete" Command="{Binding DeleteProductCommand}" />
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
+            <TextBlock Text="Name" FontWeight="Bold" FontSize="14" />
+            <TextBox Text="{Binding SelectedProduct.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" Margin="5" Padding="10" FontSize="14" />
+
+            <TextBlock Text="Price" FontWeight="Bold" FontSize="14" />
+            <TextBox Text="{Binding SelectedProduct.Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" Margin="5" Padding="10" FontSize="14" />
+
+            <TextBlock Text="Description" FontWeight="Bold" FontSize="14" />
+            <TextBox Text="{Binding SelectedProduct.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" Margin="5" Padding="10" FontSize="14" />
+
+            <Button Content="Save" Command="{Binding SaveProductCommand}" Width="200" Margin="10" Height="40" Background="#4CAF50" Foreground="White" FontWeight="Bold" BorderBrush="#388E3C" BorderThickness="1"/>
+            <Button Content="Delete" Command="{Binding DeleteProductCommand}" Width="200" Margin="10" Height="40" Background="#F44336" Foreground="White" FontWeight="Bold" BorderBrush="#D32F2F" BorderThickness="1"/>
         </StackPanel>
     </Grid>
 </Window>

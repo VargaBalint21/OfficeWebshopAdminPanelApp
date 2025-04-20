@@ -42,16 +42,16 @@ namespace OfficeWebshopAdminPanelApp.ViewModels
                 {
                     MessageBox.Show("Product added successfully!");
 
-                    // Close the ProductAddWindow
+                    // ProductAddWindow bezárása
                     var productAddWindow = Application.Current.Windows.OfType<ProductAddWindow>().FirstOrDefault();
                     productAddWindow?.Close();
 
-                    // Refresh products in MainWindow
+                    // // Window Újratöltése az új termékekkel
                     var mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
                     if (mainWindow != null)
                     {
                         var productViewModel = (ProductViewModel)mainWindow.DataContext;
-                        await productViewModel.ReloadProductsAsync();  // Refresh products list
+                        await productViewModel.ReloadProductsAsync();
                     }
                 }
                 else

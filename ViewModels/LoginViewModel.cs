@@ -34,11 +34,11 @@ namespace OfficeWebshopAdminPanelApp.ViewModels
                 if (response.IsSuccessStatusCode)
                 {
                     var result = JsonConvert.DeserializeObject<LoginResponse>(responseBody);
-                    AuthService.Token = result.Token; // store for later API use
+                    AuthService.Token = result.Token;
 
                     MessageBox.Show($"Szia {result.User.FirstName}!", "Sikeres bejelentkezés");
 
-                    // Open main window
+                    // MainWindow megnyitása
                     var mainWindow = new MainWindow();
                     mainWindow.Show();
                     Application.Current.Windows.OfType<LoginWindow>().FirstOrDefault()?.Close();

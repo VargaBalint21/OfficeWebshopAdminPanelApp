@@ -26,7 +26,6 @@ namespace OfficeWebshopAdminPanelApp.ViewModels
 
         private async void SaveProduct()
         {
-            // Implement the logic to save the product and post the changes to the database
             using (var httpClient = new HttpClient())
             {
                 var response = await httpClient.PutAsJsonAsync($"http://localhost:8000/api/products/{SelectedProduct.Id}", SelectedProduct);
@@ -53,16 +52,16 @@ namespace OfficeWebshopAdminPanelApp.ViewModels
                     {
                         MessageBox.Show("Product deleted successfully!");
 
-                        // Close the ProductEditWindow (the correct window)
+                        // ProductEditWindow bezárása
                         var productEditWindow = Application.Current.Windows.OfType<ProductEditWindow>().FirstOrDefault();
                         productEditWindow?.Close();
 
-                        // Trigger a reload of the products list in MainWindow (ProductViewModel)
+                        // Window Újratöltése a változtatott termékekkel
                         var mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
                         if (mainWindow != null)
                         {
                             var productViewModel = (ProductViewModel)mainWindow.DataContext;
-                            await productViewModel.ReloadProductsAsync();  // Refresh products list
+                            await productViewModel.ReloadProductsAsync();
                         }
                     }
                     else

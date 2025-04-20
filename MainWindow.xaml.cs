@@ -15,13 +15,12 @@ namespace OfficeWebshopAdminPanelApp
             var productViewModel = new ProductViewModel();
             this.DataContext = productViewModel;
 
-            // Load products asynchronously
             productViewModel.LoadProductsAsync();
         }
 
         private void OnAddNewProductClick(object sender, RoutedEventArgs e)
         {
-            // Open the ProductAddWindow
+            // ProductAddWindow megnyitása
             var productAddWindow = new ProductAddWindow();
             var productAddViewModel = new ProductAddViewModel();
             productAddWindow.DataContext = productAddViewModel;

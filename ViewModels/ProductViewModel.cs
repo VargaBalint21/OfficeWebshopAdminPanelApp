@@ -34,7 +34,7 @@ namespace OfficeWebshopAdminPanelApp.ViewModels
 
         private void SelectProduct(ProductModel product)
         {
-            // Navigate to the product editing page
+            // ProductEditWindow-ra átirányítás
             var productEditWindow = new ProductEditWindow(product);
             productEditWindow.Show();
         }

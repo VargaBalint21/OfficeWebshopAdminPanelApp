@@ -17,7 +17,7 @@ namespace OfficeWebshopAdminPanelApp
         protected override void OnStartup(StartupEventArgs e)
         {
             var loginWindow = new LoginWindow();
-            loginWindow.ShowDialog();  // Show the login window until it's closed
+            loginWindow.ShowDialog();
         }
 
     }
